@@ -1,3 +1,5 @@
+#    Nicolas Dufour  2ème version
+
 ---
 # Nom du playbook : Une description courte et significative de ce que fait le playbook.
 - name: Installation Gatsby
@@ -15,20 +17,38 @@
       # installation
       ansible.builtin.yum: # Nom du module Ansible utilisé pour cette tâche.
         name:
+                      # Le paquet gcc-c++ (ou g++ sur les distributions basées sur Debian) est nécessaire pour la compilation de 
+                      # programmes C++ à l'aide du compilateur GNU C++. Le paquet make est un utilitaire de construction qui permet 
+                      # d'automatiser le processus de compilation, de liaison et de création d'exécutables à partir du code source.
           - gcc-c++
+                      # make : C'est un utilitaire de construction qui permet de définir des règles 
+                      # de compilation pour un projet. Avec Make, vous pouvez décrire comment les 
+                      # différents fichiers source doivent être compilés et liés pour créer un exécutable. 
+                      # Cela simplifie considérablement le processus de compilation, en particulier pour 
+                      # les projets avec de nombreux fichiers source.
+                      # Donc, lorsque vous installez gcc-c++ avec Ansible, il est courant d'inclure également 
+                      # l'installation de make, car ils sont souvent utilisés ensemble pour gérer et compiler des projets C++.
           - make
+                      #Dans Ansible, l'argument state: present est utilisé pour indiquer que vous souhaitez vous assurer qu'un 
+                      # certain état ou une certaine configuration est en place sur les hôtes cibles. Lorsque vous utilisez state: 
+                      # present dans une tâche Ansible, cela signifie que vous demandez à Ansible de s'assurer que l'élément spécifié 
+                      # est installé, activé ou configuré sur l'hôte cible, si ce n'est pas déjà le cas.
         state: present
     - name: installation node js
       ansible.builtin.yum: # Nom du module Ansible utilisé pour cette tâche.
         name:
           - nodejs
         state: present
-        #Le dépôt "epel" signifie généralement "Extra Packages for Enterprise Linux" 
-        #et contient des paquets de logiciels supplémentaires qui ne sont pas inclus 
-        #dans les dépôts officiels de certaines distributions Linux (par exemple, CentOS, RHEL)
-        # enablerepo: epel 
+                      #Le dépôt "epel" signifie généralement "Extra Packages for Enterprise Linux" 
+                      #et contient des paquets de logiciels supplémentaires qui ne sont pas inclus 
+                      #dans les dépôts officiels de certaines distributions Linux (par exemple, CentOS, RHEL)
+                      # il instale nonc 'npm'
+        enablerepo: epel 
     - name: installation Gatsby
       ansible.builtin.npm: # Nom du module Ansible utilisé pour cette tâche.
+                      # global: yes dans Ansible avec le module npm sert à installer un package npm de 
+                      # manière globale sur le système, le rendant ainsi accessible de manière globale à 
+                      # tous les utilisateurs et projets sur la machine.
         name: gatsby-cli
 
         # state: present
