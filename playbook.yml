@@ -11,7 +11,7 @@
   tasks:
     # Description de la tâche.
     - name: effectuer un ping
-      ping:
+      ping: ping
       # module_ansible: # Nom du module Ansible utilisé pour cette tâche.
         # paramètre_1: valeur
         # paramètre_2: "{{ nom_variable_1 }}" # Utilisation d'une variable dans un paramètre.
