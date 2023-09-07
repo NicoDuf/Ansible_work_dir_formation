@@ -1,5 +1,5 @@
 # Nom du playbook : Une description courte et significative de ce que fait le playbook.
-- name: Nom du playbook
+- name: Installation Gatsby
   # Les hôtes sur lesquels le playbook sera exécuté. 
   # Cela peut être un nom d'hôte, un groupe d'hôtes ou 'all' pour tous les hôtes.
   hosts: ec2
@@ -11,8 +11,24 @@
   tasks:
     # Description de la tâche.
     - name: installation gcc-c++
-      module_ansible: # Nom du module Ansible utilisé pour cette tâche.
-        paramètre_1: valeur
+      ansible.builtin.yum: # Nom du module Ansible utilisé pour cette tâche.
+        name:
+          - gcc-c++
+          - make
+        state: present
+    - name: installation node js
+      ansible.builtin.yum: # Nom du module Ansible utilisé pour cette tâche.
+        name:
+          - nodejs
+        state: present
+        enablerepo: epel
+    - name: installation Gatsby
+      ansible.builtin.npm: # Nom du module Ansible utilisé pour cette tâche.
+        name: gatsby-cli
+
+
+        
+        # state: present
         # paramètre_2: "{{ nom_variable_1 }}" # Utilisation d'une variable dans un paramètre.
     # Une autre tâche.
     # - name: Description de la tâche 2
