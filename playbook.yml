@@ -1,3 +1,4 @@
+---
 # Nom du playbook : Une description courte et significative de ce que fait le playbook.
 - name: Installation Gatsby
   # Les hôtes sur lesquels le playbook sera exécuté. 
@@ -11,6 +12,7 @@
   tasks:
     # Description de la tâche.
     - name: installation gcc-c++
+      # installation
       ansible.builtin.yum: # Nom du module Ansible utilisé pour cette tâche.
         name:
           - gcc-c++
@@ -21,13 +23,14 @@
         name:
           - nodejs
         state: present
-        enablerepo: epel
+        #Le dépôt "epel" signifie généralement "Extra Packages for Enterprise Linux" 
+        #et contient des paquets de logiciels supplémentaires qui ne sont pas inclus 
+        #dans les dépôts officiels de certaines distributions Linux (par exemple, CentOS, RHEL)
+        # enablerepo: epel 
     - name: installation Gatsby
       ansible.builtin.npm: # Nom du module Ansible utilisé pour cette tâche.
         name: gatsby-cli
 
-
-        
         # state: present
         # paramètre_2: "{{ nom_variable_1 }}" # Utilisation d'une variable dans un paramètre.
     # Une autre tâche.
