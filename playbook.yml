@@ -1,0 +1,4 @@
+name: Realiser un ping
+  community.general.docker_container:
+    
+
