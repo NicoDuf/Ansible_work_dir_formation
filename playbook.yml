@@ -1,4 +1,23 @@
-name: Realiser un ping
-  community.general.docker_container:
-    
-
+# Nom du playbook : Une description courte et significative de ce que fait le playbook.
+- name: Nom du playbook
+  # Les hôtes sur lesquels le playbook sera exécuté. 
+  # Cela peut être un nom d'hôte, un groupe d'hôtes ou 'all' pour tous les hôtes.
+  hosts: ec2
+  # Utiliser les privilèges d'administrateur pour exécuter les tâches. 
+  # Si 'true', Ansible utilisera sudo (ou un mécanisme similaire) pour exécuter les commandes.
+  become: true
+  # Liste des tâches à exécuter. 
+  # Chaque tâche est une action que Ansible effectuera sur les hôtes cibles.
+  tasks:
+    # Description de la tâche.
+    - name: ping
+      module_ansible: # Nom du module Ansible utilisé pour cette tâche.
+        ping
+        # paramètre_1: valeur
+        # paramètre_2: "{{ nom_variable_1 }}" # Utilisation d'une variable dans un paramètre.
+    # Une autre tâche.
+    # - name: Description de la tâche 2
+    #   autre_module_ansible:
+    #     paramètre_1: valeur
+  # Gestionnaires : actions à exécuter en réponse à des notifications des tâches.
+  # Par exemple, si un fichier de configuration est modifié, un service peut avoir besoin d'être rechargé
