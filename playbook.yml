@@ -65,8 +65,9 @@
       ansible.builtin.npm:
         name:
           - gastby new projet1
-          - cd projet1
+          - cd ./projet1
           - gatsby develop
+        global: yes # correspond au -g dans un npm (nmp -g install -g'application')
 
 
 
