@@ -48,26 +48,25 @@
         name:
           - npm
         state: present
-                      #Le dépôt "epel" signifie généralement "Extra Packages for Enterprise Linux" 
-                      #et contient des paquets de logiciels supplémentaires qui ne sont pas inclus 
-                      #dans les dépôts officiels de certaines distributions Linux (par exemple, CentOS, RHEL)
-                      # il installe donc 'npm'
-        # enablerepo: epel
     - name: installation Gatsby
       ansible.builtin.npm: # Nom du module Ansible utilisé pour cette tâche.
                       # global: yes dans Ansible avec le module npm sert à installer un package npm de 
                       # manière globale sur le système, le rendant ainsi accessible de manière globale à 
                       # tous les utilisateurs et projets sur la machine.
         name: gatsby-cli
-
         global: yes # correspond au -g dans un npm (nmp -g install -g'application')
-    - name: creer un dossier gatsby new
-      ansible.builtin.cmd: gastby new projet1
+    - name: installer apache
+      package:
+        name: httpd
+        state: present # Nom du module Ansible utilisé pour cette tâche.
+    - name: construire le projet Gatsby dans le projet
+      command: "gatsby new ansible_gatsby"
 
-    - name: se deplacer dans le dossier du projet
-      shell: cd projet1
-    - name: lancer gatsby
-      shell: gatsby develop
+
+    # - name: se deplacer dans le dossier du projet
+    #   shell: cd projet1
+    # - name: lancer gatsby
+    #   shell: gatsby develop
         #   - cd ./projet1
         #   - gatsby develop
         # global: yes # correspond au -g dans un npm (nmp -g install -g'application')
