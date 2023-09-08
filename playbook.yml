@@ -62,8 +62,7 @@
     - name: construire le projet Gatsby dans le projet
       command: gatsby new ansible_gatsby
       args:
-        chdir: ./Ansible_work_dir_formation
-
+        chdir: /home/ec2-user/
 
     # - name: se deplacer dans le dossier du projet
     #   shell: cd projet1
