@@ -60,7 +60,7 @@
         name: httpd
         state: present # Nom du module Ansible utilisé pour cette tâche.
     - name: construire le projet Gatsby dans le projet
-      command: gatsby new ansible_gatsby
+      command: "gatsby new ansible_gatsby"
       args:
         chdir: HOME/Ansible_work_dir_formation
 
