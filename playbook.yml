@@ -1,7 +1,6 @@
 #    Nicolas Dufour  2ème version
-
 ---
-# Nom du playbook : Une description courte et significative de ce que fait le playbook.
+# Nom du playbook : Une description courte et significative de ce que fait le playbook et son but
 - name: Installation Gatsby
   # Les hôtes sur lesquels le playbook sera exécuté. 
   # Cela peut être un nom d'hôte, un groupe d'hôtes ou 'all' pour tous les hôtes.
@@ -42,8 +41,8 @@
                       #Le dépôt "epel" signifie généralement "Extra Packages for Enterprise Linux" 
                       #et contient des paquets de logiciels supplémentaires qui ne sont pas inclus 
                       #dans les dépôts officiels de certaines distributions Linux (par exemple, CentOS, RHEL)
-                      # il instale nonc 'npm'
-        enablerepo: epel 
+                      # il installe donc 'npm'
+        enablerepo: epel
     - name: installation Gatsby
       ansible.builtin.npm: # Nom du module Ansible utilisé pour cette tâche.
                       # global: yes dans Ansible avec le module npm sert à installer un package npm de 
