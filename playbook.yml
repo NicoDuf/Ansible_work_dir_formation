@@ -42,7 +42,17 @@
                       #et contient des paquets de logiciels supplémentaires qui ne sont pas inclus 
                       #dans les dépôts officiels de certaines distributions Linux (par exemple, CentOS, RHEL)
                       # il installe donc 'npm'
-        enablerepo: epel
+        # enablerepo: epel
+    - name: installer npm pour lancer gatsby
+      ansible.builtin.yum: # Nom du module Ansible utilisé pour cette tâche.
+        name:
+          - npm
+        state: present
+                      #Le dépôt "epel" signifie généralement "Extra Packages for Enterprise Linux" 
+                      #et contient des paquets de logiciels supplémentaires qui ne sont pas inclus 
+                      #dans les dépôts officiels de certaines distributions Linux (par exemple, CentOS, RHEL)
+                      # il installe donc 'npm'
+        # enablerepo: epel
     - name: installation Gatsby
       ansible.builtin.npm: # Nom du module Ansible utilisé pour cette tâche.
                       # global: yes dans Ansible avec le module npm sert à installer un package npm de 
