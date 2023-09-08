@@ -62,7 +62,8 @@
 
         global: yes # correspond au -g dans un npm (nmp -g install -g'application')
     - name: creer un dossier gatsby new
-      shell: gastby new projet1
+      ansible.builtin.command: gastby new projet1
+
     - name: se deplacer dans le dossier du projet
       shell: cd projet1
     - name: lancer gatsby
