@@ -61,6 +61,8 @@
         state: present # Nom du module Ansible utilisé pour cette tâche.
     - name: construire le projet Gatsby dans le projet
       command: gatsby new ansible_gatsby
+      args:
+        chdir: /
 
 
     # - name: se deplacer dans le dossier du projet
