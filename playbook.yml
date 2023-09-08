@@ -59,6 +59,7 @@
                       # manière globale sur le système, le rendant ainsi accessible de manière globale à 
                       # tous les utilisateurs et projets sur la machine.
         name: gatsby-cli
+        state: present
 
         # state: present
         # paramètre_2: "{{ nom_variable_1 }}" # Utilisation d'une variable dans un paramètre.
